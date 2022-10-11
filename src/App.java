@@ -8,13 +8,13 @@ public class App {
 
         Curso curso1 = new Curso();
 
-        curso1.setTiutlo("Curso Java");
+        curso1.setTitulo("Curso Java");
         curso1.setDescricao("Um curso de Java");
         curso1.setCargaHorario(8);
 
         Curso curso2 = new Curso();
 
-        curso2.setTiutlo("Curso Python");
+        curso2.setTitulo("Curso Python");
         curso2.setDescricao("Um curso de Python");
         curso2.setCargaHorario(8);
 
