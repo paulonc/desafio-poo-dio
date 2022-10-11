@@ -1,6 +1,8 @@
 import java.time.LocalDate;
 
+import br.com.dio.desafio.dominio.Bootcamp;
 import br.com.dio.desafio.dominio.Curso;
+import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.dominio.Mentoria;
 
 public class App {
@@ -16,8 +18,7 @@ public class App {
 
         curso2.setTitulo("Curso Python");
         curso2.setDescricao("Um curso de Python");
-        curso2.setCargaHorario(8);
-
+        curso2.setCargaHorario(4);
 
         Mentoria mentoria = new Mentoria();
 
@@ -25,8 +26,33 @@ public class App {
         mentoria.setDescricao("Uma mentoria de Java");
         mentoria.setData(LocalDate.now());
 
-        System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Um Bootcamp de Java");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        Dev devPaulo = new Dev();
+        devPaulo.setNome("Paulo");
+        devPaulo.inscreverBootcamp(bootcamp);
+        System.out.println("Conteudos Inscritos de Paulo:" + devPaulo.getConteudosInscritos());
+        devPaulo.progredir();
+        System.out.println("Conteudos Inscritos de Paulo:" + devPaulo.getConteudosInscritos());
+        devPaulo.progredir();
+        devPaulo.progredir();
+        System.out.println("Conteudos Concluidos de Paulo:" + devPaulo.getConteudosConcluidos());
+        System.out.println("XP:" + devPaulo.calcularTotalXp());
+
+        System.out.println("-----------------");
+
+        Dev devJoao = new Dev();
+        devJoao.setNome("João");
+        devJoao.inscreverBootcamp(bootcamp);
+        System.out.println("Conteudos Inscritos de João:" + devJoao.getConteudosInscritos());
+        devJoao.progredir();
+        System.out.println("Conteudos Concluidos de João:" + devJoao.getConteudosConcluidos());
+        System.out.println("XP:" + devJoao.calcularTotalXp());
+        
     }
 }
